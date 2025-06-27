@@ -30,11 +30,9 @@ function sortNumbersAscending(inputArray) {
 
     // Log the sorted array for debugging
     console.log("Sorted array (ascending):", arrayToSort);
-
     // Return the sorted array
     return arrayToSort;
 }
-
 // Example usage in the context of QES verification test mode
 const testData = [1, 15, 4,6,32,440,0,3,4];
 console.log("Starting QES test mode sorting...");

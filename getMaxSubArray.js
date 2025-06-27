@@ -33,10 +33,14 @@ function maxNumber(numArray) {
    if(numArray.length===0){
     return 0;//handles case where array has nothing
    }
-   let maxValue=Math.max(...numArray);
-   return isNaN(maxValue) ? 0 : maxValue;//tackles NaN case
+   else{
+ let max= Math.max(...numArray);
+return isNaN(max) ? 0 : max;  // Correctly handle NaN case
+
+   }
+  
 }
 
 
-console.log("the maximum sum of the sub array is :" + maxNumber(subArraySum(maxSubArray([[100, 5]]))));
+console.log("the maximum sum of the sub array generated is :" + maxNumber(subArraySum(maxSubArray([1, 2, 3]))));
 
