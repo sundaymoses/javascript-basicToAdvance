@@ -8,9 +8,11 @@ function removeElement(nums, val) {
             nums[k] = nums[i];
             k++;
         }
+            console.log("hi")
     }
   
     
     return k;
+
 }
 console.log(removeElement([1,2,3,3,3,4,3,2,3],3));
