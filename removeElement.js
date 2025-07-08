@@ -1,10 +1,16 @@
-function removeElement(nums) {
-nums.sort(compareFunction);
+function removeElement(nums, val) {
+    let k = 0; // Pointer for next non-val element position
+    
+    // Iterate through array
+    for (let i = 0; i < nums.length; i++) {
+        // If current element is not val, place it at k position
+        if (nums[i] !== val) {
+            nums[k] = nums[i];
+            k++;
+        }
+    }
+  
+    
+    return k;
 }
-// console.log(removeElement([1,2,4,3,2,3], 3))
-
-function compareFunction(a){
-    return a!=4;
-}
-
-console.log(removeElement([1,32,4,4,3,2,3]));
+console.log(removeElement([1,2,3,3,3,4,3,2,3],3));
