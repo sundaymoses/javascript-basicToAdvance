@@ -3,6 +3,7 @@ function singleNum(arr) {
     let res=[];
 for (let i = 0; i < arr.length; i++) {
   res.push(arr.filter((el)=> el === arr[i]));
+  console.log(res)
 }
 res.forEach((el)=>{
     if (el.length===1){

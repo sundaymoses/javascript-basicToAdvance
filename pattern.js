@@ -1,11 +1,7 @@
 for (let i = 1; i <= 5; i++) {
-    let str="";
-    // for (let j = i; j <= 5; j++) {
-    //   str +="m   ";  
-    // }
-     for (let m = i; m <= 5; m++) {
-      str +="* ";  
+    let number = '';
+    for (let j = 1; j <= i; j++) {
+        number += i; // Append the number i, j times
     }
-
-    console.log(str);
+        console.log(number);
 }
