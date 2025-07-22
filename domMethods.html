@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> DOM Manipulation</title>
+</head>
+<body>
+    <div>
+        <p id="message">Javascript DOM</p>
+    </div>
+    <div>
+        <input type="radio" name="language" value="JS"/>
+        <input type="radio" name="language" value="Python">
+    </div>
+    <!-- tagname -->
+     <div>
+        <h1>First heading</h1>
+        <h1>Second Heading</h1>
+     </div>
+      <div id="domClass">
+        <h1 class="first">First heading</h1>
+        <h1 class="first">Second Heading</h1>
+     </div>
+    <script>
+        //getting the values of elements
+        let msg = document.getElementById("message");
+        // console.log(msg);
+        let inputField=document.getElementsByName("language");
+        //getElementByTagName() method accepts a tag name and returns a live HTMLcollection of elements.
+        //an example of a tagName is <h1>
+        let heading=document.getElementsByTagName("h1"); 
+        //getElementsByClassName inside a specific div
+        let parentNode3=document.getElementById("domClass");
+        //get the children of the parennode that has a class first
+        let children=parentNode3.getElementsByClassName("first");
+        //using querySelector(), to print the the first element
+        let quesry=document.querySelector(".first"); //will print the first element that has that class
+        let quesry2=document.querySelectorAll(".first"); //will print the first element that has that class
+     </script>
+</body>
+</html>
