@@ -19,4 +19,4 @@ for (let i = n-1; i >= 0; i--) {
 arr.unshift(1)
 return arr;
 }
-console.log(arrAdd([3,6,3,9]))
+console.log(arrAdd([9,1,9]))
