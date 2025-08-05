@@ -2,12 +2,12 @@ function longestPrefix(strs){
 let stringToTest=strs[0];
   let newString="";
 // console.log(strs);
-//use the string that has the longest length
+//use the string that has the shrotest length
   for(let i=0; i< strs.length; i++){
     stringToTest=strs[i];
-    if(strs[i].length === stringToTest.length){
-        stringToTest=strs[i]
-    }
+    // if(strs[i].length === stringToTest.length){
+    //     stringToTest=strs[i]
+    // }
     //if string at i length is less than initialized string, append it to string to use
     if(strs[i].length < stringToTest.length){
         stringToTest=strs[i];
@@ -28,7 +28,8 @@ let stringToTest=strs[0];
    commonLetter=false;
   
     }
-    if(commonLetter){
+  }
+   if(commonLetter){
 newString +=charToTest;
 //turn back common to false
 commonLetter=false;
@@ -36,10 +37,8 @@ commonLetter=false;
     else{
         break;
     }
-   
-  }
   
 }
 return newString
 }
-console.log(longestPrefix(["cir", "carl"]));
+console.log(longestPrefix([ "car","cir"]));
