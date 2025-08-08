@@ -1,48 +1,40 @@
 function maximumGain(s, x, y) {
-    let score = 0;
-    let chars = s.split(""); // Convert string to array
-    
-    // Decide which pair to prioritize
+    let points = 0;
+    let stack = [];
+
+    // Determine which pair to remove first based on points
     let firstPair = x >= y ? "ab" : "ba";
-    let firstPoints = x >= y ? x : y;
     let secondPair = x >= y ? "ba" : "ab";
+    let firstPoints = x >= y ? x : y;
     let secondPoints = x >= y ? y : x;
-    
-    // Keep removing pairs until none left
-    let changed = true;
-    while (changed) {
-        changed = false;
-        let temp = [];
-        let i = 0;
-        
-        // Check for first pair
-        while (i < chars.length) {
-            if (i + 1 < chars.length && chars[i] == firstPair[0] && chars[i + 1] == firstPair[1]) {
-                score += firstPoints;
-                changed = true;
-                i += 2; // Skip both characters
-            } else {
-                temp.push(chars[i]);
-                i++;
-            }
+
+    // First pass: Remove higher-value pairs
+    for (let char of s) {
+        if (stack.length > 0 && 
+            ((firstPair === "ab" && stack[stack.length - 1] === 'a' && char === 'b') ||
+             (firstPair === "ba" && stack[stack.length - 1] === 'b' && char === 'a'))) {
+            stack.pop(); // Remove the matching character
+            points += firstPoints; // Add points for the pair
+        } else {
+            stack.push(char); // Add current character to stack
         }
-        chars = temp;
-        
-        // Check for second pair
-        temp = [];
-        i = 0;
-        while (i < chars.length) {
-            if (i + 1 < chars.length && chars[i] == secondPair[0] && chars[i + 1] == secondPair[1]) {
-                score += secondPoints;
-                changed = true;
-                i += 2; // Skip both characters
-            } else {
-                temp.push(chars[i]);
-                i++;
-            }
-        }
-        chars = temp;
     }
-    
-    return score;
+
+    // Second pass: Remove lower-value pairs from the remaining stack
+    let temp = [];
+    for (let char of stack) {
+        if (temp.length > 0 && 
+            ((secondPair === "ab" && temp[temp.length - 1] === 'a' && char === 'b') ||
+             (secondPair === "ba" && temp[temp.length - 1] === 'b' && char === 'a'))) {
+            temp.pop(); // Remove the matching character
+            points += secondPoints; // Add points for the pair
+        } else {
+            temp.push(char); // Add current character to temp stack
+        }
+    }
+
+    return points;
 }
+
+// Test case
+console.log(maximumGain("abababbabc", 6, 4)); // Expected output: 16
